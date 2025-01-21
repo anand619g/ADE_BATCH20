@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DF-ADEBATCH20"
+		},
+		"LS_ADLS_connectionString": {
+			"value": ""
+		},
+		"LS_KV_ADLS_connectionString": {
+			"value": "DefaultEndpointsProtocol=https;AccountName=adlsbatch20;"
+		},
+		"LS_SQL_password": {
+			"value": ""
+		},
+		"LS_SQL_PARAM_password": {
+			"value": ""
+		},
+		"KV_BATCH20_properties_typeProperties_baseUrl": {
+			"value": "https://kv-adebatch20.vault.azure.net/"
+		},
+		"LS_SQL_properties_typeProperties_server": {
+			"value": "sqlserverbatch20.database.windows.net"
+		},
+		"LS_SQL_properties_typeProperties_database": {
+			"value": "sqldb_batch20"
+		},
+		"LS_SQL_properties_typeProperties_userName": {
+			"value": "anand"
+		},
+		"LS_SQL_KV_properties_typeProperties_server": {
+			"value": "sqlserverbatch20.database.windows.net"
+		},
+		"LS_SQL_KV_properties_typeProperties_database": {
+			"value": "sqldb_batch20"
+		},
+		"LS_SQL_KV_properties_typeProperties_userName": {
+			"value": "anand"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_server": {
+			"value": "sqlserverbatch20.database.windows.net"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_database": {
+			"value": "@{linkedService().dbName}"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_userName": {
+			"value": "anand"
+		},
+		"Event_Trigger_Cus2_properties_typeProperties_scope": {
+			"value": "/subscriptions/2b656583-091d-43e8-9638-7d4a7b5baac5/resourceGroups/RG-ADEBATCH20/providers/Microsoft.Storage/storageAccounts/adlsbatch20"
+		},
+		"Tumbling_Window_properties_pipeline_parameters_WindowStartTime": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"Tumbling_Window_properties_pipeline_parameters_WindowEndTime": {
+			"value": "@trigger().outputs.windowEndTime"
+		}
+	}
+}
