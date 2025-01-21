@@ -1,0 +1,31 @@
+{
+	"name": "TBL_TUMB_CUST",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_KV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CustName",
+				"type": "varchar"
+			},
+			{
+				"name": "TrxnDate",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Tumbling_Cust"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

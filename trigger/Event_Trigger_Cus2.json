@@ -1,0 +1,25 @@
+{
+	"name": "Event_Trigger_Cus2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "EVENT_BASED_PIPELINE",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/eventtrigger/blobs/Input",
+			"blobPathEndsWith": "Cus2.csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/2b656583-091d-43e8-9638-7d4a7b5baac5/resourceGroups/RG-ADEBATCH20/providers/Microsoft.Storage/storageAccounts/adlsbatch20",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

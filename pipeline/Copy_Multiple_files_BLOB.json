@@ -1,0 +1,84 @@
+{
+	"name": "Copy_Multiple_files_BLOB",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@startOfDay(utcNow())",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": null,
+							"wildcardFolderPath": "Input",
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings",
+							"copyBehavior": "PreserveHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Dynamic_Folder",
+						"type": "DatasetReference",
+						"parameters": {
+							"ContainerName": "dataset",
+							"FolderName": "Input"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Dynamic_Folder",
+						"type": "DatasetReference",
+						"parameters": {
+							"ContainerName": "dataset",
+							"FolderName": "output"
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-01-08T04:08:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
