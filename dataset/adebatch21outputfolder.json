@@ -1,0 +1,23 @@
+{
+	"name": "adebatch21outputfolder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB_ADLS2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Output",
+				"container": "adebatch21"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
